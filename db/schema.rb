@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2021_02_06_214754) do
-
+ActiveRecord::Schema[7.1].define(version: 2021_02_06_214754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
@@ -21,8 +20,8 @@ ActiveRecord::Schema[6.1].define(version: 2021_02_06_214754) do
     t.bigint "conversable_id"
     t.bigint "sender_id"
     t.bigint "receiver_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["conversable_type", "conversable_id"], name: "index_conversations_on_conversable_type_and_conversable_id"
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
     t.index ["sender_id", "receiver_id", "conversable_type", "conversable_id"], name: "unique_index_for_sender", unique: true
@@ -35,8 +34,8 @@ ActiveRecord::Schema[6.1].define(version: 2021_02_06_214754) do
     t.string "url"
     t.string "status", default: "normal"
     t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
@@ -51,8 +50,8 @@ ActiveRecord::Schema[6.1].define(version: 2021_02_06_214754) do
     t.boolean "pets_allowed", default: false
     t.boolean "round_trip", default: false
     t.boolean "smoking_allowed", default: false
-    t.datetime "leave_date"
-    t.datetime "return_date"
+    t.datetime "leave_date", precision: nil
+    t.datetime "return_date", precision: nil
     t.string "driver_gender"
     t.boolean "verified", default: false
     t.string "start_address"
@@ -65,8 +64,8 @@ ActiveRecord::Schema[6.1].define(version: 2021_02_06_214754) do
     t.boolean "avoid_highways", default: false
     t.boolean "avoid_tolls", default: false
     t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["slug"], name: "index_itineraries_on_slug", unique: true
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
@@ -75,9 +74,9 @@ ActiveRecord::Schema[6.1].define(version: 2021_02_06_214754) do
     t.bigint "conversation_id"
     t.bigint "sender_id"
     t.text "body"
-    t.datetime "read_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "read_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
@@ -100,9 +99,9 @@ ActiveRecord::Schema[6.1].define(version: 2021_02_06_214754) do
     t.boolean "admin", default: false
     t.boolean "banned", default: false
     t.string "access_token"
-    t.datetime "access_token_expires_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "access_token_expires_at", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end

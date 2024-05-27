@@ -272,12 +272,12 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :auth0,
-                  APP_CONFIG.auth0.client_id,
-                  APP_CONFIG.auth0.client_secret,
-                  APP_CONFIG.auth0.domain,
-                  authorize_params: {
-                    scope:   APP_CONFIG.auth0.scope,
-                    max_age: 3600
+  'eN5gXRUD0mMlIaEJX2JE7XLngDOxsE2V',
+  'l-BAU_14yOaYyp6b9Q-VeCCDEFKWuLjCc-P3z14YacyTSARCmiB3ogZyEcGQ8h07',
+  'dev-z17tzpeofmici017.eu.auth0.com',
+  authorize_params: {
+    scope: 'openid profile email',
+    redirect_uri: 'http://127.0.0.1:3001/users/auth/auth0/callback'
                   }
 
   # ==> Warden configuration

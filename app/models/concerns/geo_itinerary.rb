@@ -61,8 +61,9 @@ module GeoItinerary
         "markers=color:green|label:B|#{end_location.coordinates.reverse.join(',')}",
         "markers=color:green|label:A|#{start_location.coordinates.reverse.join(',')}",
         "path=enc:#{overview_polyline}",
-        ("key=#{APP_CONFIG.google_maps_api_key}" if APP_CONFIG.google_maps_api_key)
+        "key=AIzaSyCirDLqWAoaZ1Yi2wUOJuTCdhlYtWkVIfw"
       ].compact.join('&')
-    end
+    end 
   end
 end
+
